@@ -2,6 +2,13 @@ import streamlit as st
 import pandas as pd
 from rag.engine import AnimeRAGEngine
 
+
+import os
+
+
+st.write("Working directory:", os.getcwd())
+st.write("Files:", os.listdir())
+
 st.set_page_config(page_title="Anime Creation Coach", page_icon="🎬", layout="wide")
 
 @st.cache_resource
