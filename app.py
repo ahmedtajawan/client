@@ -14,12 +14,9 @@ def load_engine():
     data_path = BASE_DIR / "data" / "anime_sample.csv"
     return AnimeRAGEngine(str(data_path))
 
-engine = None
+engine = load_engine()
 
 
-if st.button("Analyze concept"):
-    engine = load_engine()
-    result = engine.score_concept(concept, k=k)
 
 st.title("🎬 Anime Creation Coach")
 st.caption("RAG-powered market-fit and creative positioning prototype for anime concepts.")
