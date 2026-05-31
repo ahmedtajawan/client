@@ -11,9 +11,13 @@ st.write("Files:", os.listdir())
 
 st.set_page_config(page_title="Anime Creation Coach", page_icon="🎬", layout="wide")
 
+from pathlib import Path
+
 @st.cache_resource
 def load_engine():
-    return AnimeRAGEngine("data/anime_sample.csv")
+    BASE_DIR = Path(__file__).parent
+    data_path = BASE_DIR / "data" / "anime_sample.csv"
+    return AnimeRAGEngine(str(data_path))
 
 engine = load_engine()
 
