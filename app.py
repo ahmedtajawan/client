@@ -4,10 +4,11 @@ from rag.engine import AnimeRAGEngine
 
 
 import os
-st.write(os.listdir("data"))
 
-st.write("Working directory:", os.getcwd())
-st.write("Files:", os.listdir())
+
+st.write("cwd:", os.getcwd())
+st.write("files:", os.listdir())
+st.write("data folder:", os.listdir("data") if os.path.exists("data") else "NO DATA FOLDER")
 
 st.set_page_config(page_title="Anime Creation Coach", page_icon="🎬", layout="wide")
 
@@ -19,7 +20,12 @@ def load_engine():
     data_path = BASE_DIR / "data" / "anime_sample.csv"
     return AnimeRAGEngine(str(data_path))
 
-engine = load_engine()
+engine = None
+
+
+if st.button("Analyze concept"):
+    engine = load_engine()
+    result = engine.score_concept(concept, k=k)
 
 st.title("🎬 Anime Creation Coach")
 st.caption("RAG-powered market-fit and creative positioning prototype for anime concepts.")
