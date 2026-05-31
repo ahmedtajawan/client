@@ -3,12 +3,6 @@ import pandas as pd
 from rag.engine import AnimeRAGEngine
 
 
-import os
-
-
-st.write("cwd:", os.getcwd())
-st.write("files:", os.listdir())
-st.write("data folder:", os.listdir("data") if os.path.exists("data") else "NO DATA FOLDER")
 
 st.set_page_config(page_title="Anime Creation Coach", page_icon="🎬", layout="wide")
 
