@@ -4,7 +4,7 @@ from rag.engine import AnimeRAGEngine
 
 
 import os
-
+st.write(os.listdir("data"))
 
 st.write("Working directory:", os.getcwd())
 st.write("Files:", os.listdir())
